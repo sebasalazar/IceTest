@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ice="http://www.icesoft.com/icefaces/component">
+      xmlns:ice="http://www.icesoft.com/icefaces/component"
+      xmlns:h="http://java.sun.com/jsf/html">
 
     <ui:composition template="/templates/main.xhtml">
         <ui:define name="content">
             <ice:panelLayout>
-                <ice:outputText value="#{indexBean.now}" />
+                <ice:form>
+                    <ice:outputText value="#{indexBean.modalOpened}" />
+                </ice:form>
             </ice:panelLayout>
         </ui:define>
     </ui:composition>

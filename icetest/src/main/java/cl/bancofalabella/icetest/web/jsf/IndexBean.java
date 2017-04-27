@@ -17,6 +17,8 @@ public class IndexBean implements Serializable {
     private static final long serialVersionUID = 8491384550722840576L;
 
     private Date now = null;
+    
+    private boolean modalOpened = false;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(IndexBean.class);
 
@@ -27,5 +29,25 @@ public class IndexBean implements Serializable {
 
     public Date getNow() {
         return now;
+    }
+
+    public boolean isModalOpened() {
+        return modalOpened;
+    }
+
+    public void setModalOpened(boolean modalOpened) {
+        this.modalOpened = modalOpened;
+    }
+    
+    public void toggleOpened() {
+        modalOpened = !modalOpened;
+    }
+    
+    public void openEvent() {
+        modalOpened = true;
+    }
+    
+    public void closeEvent() {
+        modalOpened = false;
     }
 }
