@@ -1,18 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<html lang="es" xml:lang="es"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
+<html lang="es" xml:lang="es" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ice="http://www.icesoft.com/icefaces/component">
 
     <f:loadBundle basename="messages" var="msg" />
 
     <f:view contentType="text/html" encoding="utf-8">
 
-        <h:head>
-
+        <head>
             <meta charset="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -22,15 +19,13 @@
             <title>${msg.titulo}</title>
 
             <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
-            <h:outputStylesheet library="primefaces-bancofalabella" name="css/bf.css" />
-            <link rel="icon" type="image/png" href="#{resource['primefaces-bancofalabella/img/favicon.png']}" />
-        </h:head>
+        </head>
 
-        <h:body>
+        <body>
             <ice:panelLayout id="content">
                 <ui:insert name="content" />
             </ice:panelLayout>
-        </h:body>
+        </body>
 
     </f:view>
 </html>

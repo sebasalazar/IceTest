@@ -16,8 +16,17 @@
             -->
         </locale-config>
 
-        <view-handler>com.icesoft.faces.facelets.D2DFaceletViewHandler</view-handler>
+        <!--<view-handler>com.icesoft.faces.facelets.D2DFaceletViewHandler</view-handler>-->
+        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
     </application>
+
+    <!-- Beans -->
+    <managed-bean>
+        <managed-bean-name>indexBean</managed-bean-name>
+        <managed-bean-class>cl.bancofalabella.icetest.web.jsf.IndexBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+
 
     <!-- Reglas de Navegación -->
     <navigation-rule>
