@@ -62,6 +62,20 @@
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>Persistent Faces Servlet</servlet-name>
+        <servlet-class>cl.bancofalabella.icetest.servlet.PersistentFaces</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Persistent Faces Servlet</servlet-name>
+        <url-pattern>/xmlhttp/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Persistent Faces Servlet</servlet-name>
+        <url-pattern>*.ifaces</url-pattern>
+    </servlet-mapping>
+
     <!-- Sesion Hibernate para todo el requerimiento http -->
     <!--
     <filter>
