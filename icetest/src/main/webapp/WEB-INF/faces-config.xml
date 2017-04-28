@@ -16,8 +16,8 @@
             -->
         </locale-config>
 
-        <!--<view-handler>com.icesoft.faces.facelets.D2DFaceletViewHandler</view-handler>-->
-        <view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+        <view-handler>com.icesoft.faces.facelets.D2DFaceletViewHandler</view-handler>
+        <!--<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>-->
     </application>
 
     <!-- Beans -->
