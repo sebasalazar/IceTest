@@ -1,3 +1,55 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'pf_beausans_probold';
+    src: url('../font/pfbeausanspro-bold-webfont.eot');
+    src: url('../font/pfbeausanspro-bold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/pfbeausanspro-bold-webfont.woff') format('woff'),
+        url('../font/pfbeausanspro-bold-webfont.ttf') format('truetype'),
+        url('../font/pfbeausanspro-bold-webfont.svg#pf_beausans_probold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pf_beausans_prolight';
+    src: url('../font/pfbeausanspro-light-webfont.eot');
+    src: url('../font/pfbeausanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/pfbeausanspro-light-webfont.woff') format('woff'),
+        url('../font/pfbeausanspro-light-webfont.ttf') format('truetype'),
+        url('../font/pfbeausanspro-light-webfont.svg#pf_beausans_prolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pf_beausans_proregular';
+    src: url('../font/pfbeausanspro-regular-webfont.eot');
+    src: url('../font/pfbeausanspro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/pfbeausanspro-regular-webfont.woff') format('woff'),
+        url('../font/pfbeausanspro-regular-webfont.ttf') format('truetype'),
+        url('../font/pfbeausanspro-regular-webfont.svg#pf_beausans_proregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pf_beausans_prosemibold';
+    src: url('../font/pfbeausanspro-semibold-webfont.eot');
+    src: url('../font/pfbeausanspro-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/pfbeausanspro-semibold-webfont.woff') format('woff'),
+        url('../font/pfbeausanspro-semibold-webfont.ttf') format('truetype'),
+        url('../font/pfbeausanspro-semibold-webfont.svg#pf_beausans_prosemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'pf_beausans_prothin';
+    src: url('../font/pfbeausanspro-thin-webfont.eot');
+    src: url('../font/pfbeausanspro-thin-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../font/pfbeausanspro-thin-webfont.woff') format('woff'),
+        url('../font/pfbeausanspro-thin-webfont.ttf') format('truetype'),
+        url('../font/pfbeausanspro-thin-webfont.svg#pf_beausans_prothin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 #content {
     width: 960px;
@@ -268,7 +320,7 @@ a[id^="boton-"]{
     color: #008441;
     text-align: center;
     background: transparent;
-    
+
 }
 
 .comprobante #comprobante-content{
@@ -437,4 +489,166 @@ a[id^="boton-"]{
     .anticipo #anticipo-banner {
         display: none;
     }
+}
+
+
+.bfPopup, .bfPopup *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: 0 !important;
+}
+
+.bfPopup{
+    width: 600px;
+    min-height: 300px;
+    background: #ffffff;
+    border: 1px solid;
+    border-color: #cccccc;
+    border-radius: 3px;
+}
+
+.popupHeaderWrapper{
+    height: 70px;
+    background: #008441;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    border-radius: 3px 3px 0 0;
+}
+
+.popupHeaderText{
+    font-family: 'pf_beausans_proregular';
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.popupBodyWrapper{
+    min-height: 230px;
+    position: relative;
+    padding: 60px 25px 135px;
+    font-family: 'pf_beausans_prolight';
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+.popupBodyWrapper .foreignResidenceYes{
+    width: 100%;
+    font-size: 14px;
+}
+
+.popupBodyWrapper .foreignResidenceYes td{
+    vertical-align: top;
+    padding: 10px 0 0px;
+}
+
+.popupBodyWrapper span.question{
+    display: inline-block;
+    width: 340px;
+    padding-right: 30px;
+    position: relative;
+}
+
+.popupBodyWrapper span.infoIcon:after{
+    font-family: 'FontAwesome';
+    content: '\f059';
+    color: #cccccc;
+    font-size: 10px;
+    position: absolute;
+    right: 0px;
+    top: 2px;
+}
+
+.popupBodyWrapper .selectDiv{
+    position: relative;
+    float: right;
+}
+
+.popupBodyWrapper .selectDiv:after{
+    font-family: 'FontAwesome';
+    content: '\f0d7';
+    color: #333333;
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    font-size: 14px;
+}
+
+.popupBodyWrapper select{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 160px;
+    height: 18px;
+    font-size: 10px;
+    padding: 0 10px;
+    border-radius: 3px;
+}
+
+.popupBodyWrapper .tinInput{
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    width: 160px;
+    height: 18px;
+    font-size: 10px;
+    padding: 0 10px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    float: right;
+}
+
+.popupBodyWrapper .modalPnlCloseButton{
+    position: absolute;
+    bottom: 15px;
+    left: 235px;
+    height: 30px;
+    width: 130px;
+    border: 0;
+    border-radius: 3px;
+    background: #008441;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.popupBodyWrapper .termsAndConditions{
+    position: absolute;
+    bottom: 75px;
+    font-size: 11px;
+}
+
+.popupBodyWrapper .termsAndConditions input[type="checkbox"]{
+    margin-left: -5px;
+    margin-right: 5px;
+}
+
+.popupBodyWrapper .termsAndConditions span{
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.popupBodyWrapper .modalMessages{
+    position: absolute;
+    top: 15px;
+    width: calc(100% - 30px);
+    font-size: 11px;
+    padding: 3px 15px 3px 50px;
+    margin-left: -10px;
+}
+
+.popupBodyWrapper .errorMessage{
+    background: #f6d6a6;
+}
+
+.popupBodyWrapper .errorMessage:before{
+    font-family: 'FontAwesome';
+    position: absolute;
+    top: 3px;
+    content: '\f071';
+    color: #ff0000;
+    left: 25px;
+    font-size: 14px;
 }

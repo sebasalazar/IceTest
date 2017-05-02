@@ -37,4 +37,10 @@
         </navigation-case>
     </navigation-rule>
     <!-- -->
+
+    <!-- Convertidores -->
+    <converter id="BaseBeanConverter">
+        <converter-id>BaseBeanConverter</converter-id>
+        <converter-class>cl.bancofalabella.icetest.converter.BaseBeanConverter</converter-class>
+    </converter>
 </faces-config>
