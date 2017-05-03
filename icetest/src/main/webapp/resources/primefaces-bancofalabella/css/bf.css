@@ -534,9 +534,36 @@ a[id^="boton-"]{
     letter-spacing: 0.5px;
 }
 
-.popupBodyWrapper .foreignResidenceYes{
+.popupBodyWrapper .foreignResidenceIterator:not(:first-child){
+    margin-top: 10px;
+    border-top: 1px solid #eeeeee;
+    position: relative;
+}
+
+.popupBodyWrapper .foreignResidenceIterator .removeForeignResidence:before{
+    font-family: 'FontAwesome';
+    content: '\f00d';
+    color: #cccccc;
+    font-size: 10px;
+    position: absolute;
+    right: 0px;
+    top: 2px;
+}
+
+.popupBodyWrapper .foreignResidenceIterator:first-child .removeForeignResidence{
+    display: none;
+}
+
+.popupBodyWrapper .foreignResidenceYes table{
     width: 100%;
     font-size: 14px;
+}
+
+.popupBodyWrapper span.frTitle{
+    font-size: 10px;
+    color: #008441;
+    display: block;
+    margin: 10px 0 -10px;
 }
 
 .popupBodyWrapper .foreignResidenceYes td{
@@ -546,19 +573,76 @@ a[id^="boton-"]{
 
 .popupBodyWrapper span.question{
     display: inline-block;
-    width: 340px;
-    padding-right: 30px;
+    width: 330px;
+    vertical-align: top;
+}
+
+.popupBodyWrapper .infoDiv{
+    position: relative;
+    display: inline-block;
+}
+
+.popupBodyWrapper .infoDiv span.infoBalloon{
+    display: none;
+    padding: 10px;
+    text-align: justify;
+    width: 290px;
+    height: 60px;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    position: absolute;
+    left: -80px;
+    top: -70px;
+    font-size: 10px;
+    box-shadow: 3px 3px 5px #888888;
+}
+
+.popupBodyWrapper .infoDiv span.infoBalloon.showBalloon{
+    display: block;
+}
+
+.popupBodyWrapper .infoDiv span.infoBalloon:before{
+    content: "";
+    display: block; /* reduce the damage in FF3.0 */
+    position: absolute;
+    bottom: -10px;
+    left: 70px;
+    width: 0;
+    border-width: 10px 15px 0;
+    border-style: solid;
+    border-color: #cccccc transparent;
+}
+
+.popupBodyWrapper .infoDiv span.infoBalloon:after{
+    content: "";
+    display: block; /* reduce the damage in FF3.0 */
+    position: absolute;
+    bottom: -9px;
+    left: 70px;
+    width: 0;
+    border-width: 10px 15px 0;
+    border-style: solid;
+    border-color: #ffffff transparent;
+}
+
+.popupBodyWrapper .infoDiv span.infoIcon{
+    display: inline-block;
+    width: 10px;
+    height: 14px;
+    margin-right: 40px;
     position: relative;
 }
 
-.popupBodyWrapper span.infoIcon:after{
+.popupBodyWrapper .infoDiv span.infoIcon:after{
     font-family: 'FontAwesome';
     content: '\f059';
     color: #cccccc;
     font-size: 10px;
     position: absolute;
-    right: 0px;
-    top: 2px;
+    left: 0px;
+    top: 3px;
+    cursor: pointer;
 }
 
 .popupBodyWrapper .selectDiv{
@@ -600,6 +684,19 @@ a[id^="boton-"]{
     float: right;
 }
 
+.popupBodyWrapper .addMoreForeignResidences{
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.popupBodyWrapper .addMoreForeignResidences a{
+    color: #333333;
+    text-decoration: none;
+    font-size: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
 .popupBodyWrapper .modalPnlCloseButton{
     position: absolute;
     bottom: 15px;
@@ -624,7 +721,7 @@ a[id^="boton-"]{
     margin-right: 5px;
 }
 
-.popupBodyWrapper .termsAndConditions span{
+.popupBodyWrapper .termsAndConditions label{
     border-bottom: 1px solid #cccccc;
     padding-bottom: 5px;
     cursor: pointer;
