@@ -8,8 +8,9 @@
         <ui:define name="content">
             <ice:panelLayout>
                 <ice:form>
-                    <ice:outputText value="#{indexBean.foreignResidence}" />
-                    <ice:commandButton id="toggleModal" value="ABRIR POPUP" actionListener="#{indexBean.toggleOpened}" />
+                    <ice:outputText value="Tiene dirección tributaria ingresada" rendered="#{indexBean.hasForeignResidence}" />
+                    <ice:outputText value="NO tiene dirección tributaria ingresada" rendered="#{!indexBean.hasForeignResidence}" /><br/>
+                    <ice:commandButton id="toggleModal" value="ABRIR POPUP" actionListener="#{indexBean.open}" rendered="#{!indexBean.hasForeignResidence}" />
 
 
                     <ice:panelPopup id="modalPnlBanco" styleClass="bfPopup"
@@ -18,15 +19,13 @@
                                     autoCentre="true">
                         <f:facet name="header">
                             <ice:panelGroup styleClass="popupHeaderWrapper">
-                                <ice:outputText
-                                    value="De acuerdo al último reglamento publicado por el Ministerio de Hacienda, debemos realizar las siguientes preguntas para que pueda invertir en nuestros canales"
-                                    styleClass="popupHeaderText"/>
+                                <ice:outputText value="${msg.popupHeader}" styleClass="popupHeaderText"/>
                             </ice:panelGroup>
                         </f:facet>
                         <f:facet name="body">
                             <ice:panelGroup styleClass="popupBodyWrapper">
-                                <ice:panelGroup id="modalMessages" styleClass="modalMessages errorMessage">
-                                    <ice:outputText value="Debes aceptar los términos y condiciones para continuar"/>
+                                <ice:panelGroup id="modalMessages" styleClass="modalMessages">
+                                    <ice:messages id="messages" styleClass="message" showDetail="false" />
                                 </ice:panelGroup>
                                 <ice:panelGroup id="foreignResidenceQuestion">
                                     <ice:outputText styleClass="question" value="¿Tienes residencia tributaria en el extranjero?"/>
@@ -35,69 +34,65 @@
                                         <ice:outputText styleClass="infoBalloon" value="Cuando a raíz de la realización de una actividad que genere rentas, una persona paga impuestos fuera de Chile."/>
                                     </ice:panelGroup>
                                     <ice:panelGroup styleClass="selectDiv">
-                                        <ice:selectOneMenu id="foreignResidence" value="#{indexBean.foreignResidence}" partialSubmit="true">
-                                            <f:selectItem itemValue="false" itemLabel="No" />
-                                            <f:selectItem itemValue="true" itemLabel="Sí" />
+                                        <ice:selectOneMenu id="foreignResidence" value="#{indexBean.showForeignResidencePanel}" partialSubmit="true" >
+                                            <f:selectItem itemValue="#{false}" itemLabel="No"  />
+                                            <f:selectItem itemValue="#{true}" itemLabel="Sí" />
                                         </ice:selectOneMenu>
                                     </ice:panelGroup>
                                 </ice:panelGroup>
-                                <ice:panelGroup styleClass="foreignResidenceYes" rendered="#{indexBean.foreignResidence}">
-                                    <ice:panelGroup styleClass="foreignResidenceIterator">
-                                        <ice:commandLink styleClass="removeForeignResidence" action="#{indexBean.removeForeignResidence}" value="" />
-                                        <ice:outputText styleClass="frTitle" value="Dirección 1" />
-                                        <ice:panelGrid cellpadding="0" cellspacing="0" columns="3" >
-                                            <ice:outputText styleClass="question" value="Selecciona País"/>
-                                            <ice:outputText styleClass="" value=""/>
-                                            <ice:panelGroup styleClass="selectDiv">
-                                                <ice:selectOneMenu styleClass="foreignResidenceCountry" value="#{indexBean.frCountry}" converter="BaseBeanConverter">
-                                                    <f:selectItems value="#{indexBean.countries}" var="c" itemLabel="#{c.label}" itemValue="#{c.value}"/>
-                                                </ice:selectOneMenu>
-                                            </ice:panelGroup>
-                                            <ice:outputText styleClass="question" value="Ingresa número de identificación tributario del país extranjero"/>
-                                            <ice:panelGroup styleClass="infoDiv">
-                                                <ice:outputText styleClass="infoIcon" value=""/>
-                                                <ice:outputText styleClass="infoBalloon" value="Corresponde al número que permite identificar, ubicar y clasificar a las personas y entidades que tengan la calidad de contribuyentes en un país determinado."/>
-                                            </ice:panelGroup>
-                                            <ice:inputText styleClass="tinInput" value="#{indexBean.frTin}" />
-                                        </ice:panelGrid>
-                                    </ice:panelGroup>
-                                    <ice:panelGroup styleClass="foreignResidenceIterator">
-                                        <ice:commandLink styleClass="removeForeignResidence" action="#{indexBean.removeForeignResidence}" value="" />
-                                        <ice:outputText styleClass="frTitle" value="Dirección 2" />
-                                        <ice:panelGrid cellpadding="0" cellspacing="0" columns="3" >
-                                            <ice:outputText styleClass="question" value="Selecciona País"/>
-                                            <ice:outputText styleClass="" value=""/>
-                                            <ice:panelGroup styleClass="selectDiv">
-                                                <ice:selectOneMenu styleClass="foreignResidenceCountry" value="#{indexBean.frCountry}" converter="BaseBeanConverter">
-                                                    <f:selectItems value="#{indexBean.countries}" var="c" itemLabel="#{c.label}" itemValue="#{c.value}"/>
-                                                </ice:selectOneMenu>
-                                            </ice:panelGroup>
-                                            <ice:outputText styleClass="question" value="Ingresa número de identificación tributario del país extranjero"/>
-                                            <ice:panelGroup styleClass="infoDiv">
-                                                <ice:outputText styleClass="infoIcon" value=""/>
-                                                <ice:outputText styleClass="infoBalloon" value="Corresponde al número que permite identificar, ubicar y clasificar a las personas y entidades que tengan la calidad de contribuyentes en un país determinado."/>
-                                            </ice:panelGroup>
-                                            <ice:inputText styleClass="tinInput" value="#{indexBean.frTin}" />
-                                        </ice:panelGrid>
-                                    </ice:panelGroup>
-                                    <ice:panelGroup styleClass="addMoreForeignResidences">
-                                        <ice:commandLink action="#{indexBean.addMoreForeignResidences}" value="+ Agregar más direcciones"/>
+                                <ice:panelGroup styleClass="foreignResidencePanel" rendered="#{indexBean.showForeignResidencePanel}">
+                                    <ice:panelSeries value="#{indexBean.foreignResidences}" var="r" varStatus="i">
+                                        <ice:panelGroup styleClass="foreignResidenceIterator">
+                                            <ice:commandLink styleClass="removeForeignResidence" actionListener="#{indexBean.removeForeignResidence(i.index)}" value="" />
+                                            <ice:outputText styleClass="frTitle" value="Dirección #{i.index+1}" rendered="#{indexBean.foreignResidences.size() > 1}" />
+                                            <ice:panelGrid cellpadding="0" cellspacing="0" columns="3" >
+                                                <ice:outputText styleClass="question" value="Selecciona País"/>
+                                                <ice:outputText styleClass="" value=""/>
+                                                <ice:panelGroup styleClass="selectDiv">
+                                                    <ice:selectOneMenu styleClass="foreignResidenceCountry" value="#{r.country}" converter="BaseBeanConverter">
+                                                        <f:selectItem itemLabel="Seleccione un país" itemValue="#{indexBean.noCountry}" noSelectionOption="true" />
+                                                        <f:selectItems value="#{indexBean.countries}" var="c" itemLabel="#{c.label}" itemValue="#{c.value}"/>
+                                                    </ice:selectOneMenu>
+                                                </ice:panelGroup>
+                                                <ice:outputText styleClass="question" value="Ingresa número de identificación tributario del país extranjero"/>
+                                                <ice:panelGroup styleClass="infoDiv">
+                                                    <ice:outputText styleClass="infoIcon" value=""/>
+                                                    <ice:outputText styleClass="infoBalloon" value="Corresponde al número que permite identificar, ubicar y clasificar a las personas y entidades que tengan la calidad de contribuyentes en un país determinado."/>
+                                                </ice:panelGroup>
+                                                <ice:inputText styleClass="tinInput" value="#{r.tin}" />
+                                            </ice:panelGrid>
+                                        </ice:panelGroup>
+                                    </ice:panelSeries>
+                                    <ice:panelGroup styleClass="addMoreForeignResidences" rendered="#{indexBean.foreignResidences.size() == 1 or indexBean.foreignResidences.size() == 2}">
+                                        <ice:commandLink actionListener="#{indexBean.addForeignResidence}" value="+ Agregar más direcciones"/>
                                     </ice:panelGroup>
                                 </ice:panelGroup>
 
 
                                 <ice:panelGroup styleClass="termsAndConditions">
-                                    <ice:selectBooleanCheckbox id="chkAcceptConditions" value="#{indexBean.acceptConditions}" />
+                                    <ice:selectBooleanCheckbox id="chkAcceptConditions" value="#{indexBean.acceptConditions}" required="true" />
                                     <ice:outputLabel for="chkAcceptConditions" value="Declaro conocer y aceptar los términos y condiciones"/>
                                 </ice:panelGroup>
-                                <ice:commandButton styleClass="modalPnlCloseButton" type="submit"
+                                <ice:commandButton styleClass="modalPnlResetButton" type="submit"
+                                                   value="Cancelar" partialSubmit="true"
+                                                   actionListener="#{indexBean.reset}"/>
+                                <ice:commandButton styleClass="modalPnlProcessButton" type="submit"
                                                    value="Continuar"
-                                                   actionListener="#{indexBean.toggleOpened}"/>
+                                                   actionListener="#{indexBean.process}"/>
                             </ice:panelGroup>
                         </f:facet>
                     </ice:panelPopup>
                 </ice:form>
             </ice:panelLayout>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    jQuery(".infoIcon").mouseenter(function () {
+                        jQuery(this).siblings(".infoBalloon").addClass("showBalloon");
+                    }).mouseleave(function () {
+                        jQuery(".infoBalloon").removeClass("showBalloon");
+                    });
+                });
+            </script>
         </ui:define>
     </ui:composition>
 </html>

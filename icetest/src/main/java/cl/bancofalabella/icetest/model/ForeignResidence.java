@@ -6,9 +6,18 @@ package cl.bancofalabella.icetest.model;
  */
 public class ForeignResidence extends BaseBean {
 
+    private Long id;
     private Country country;
     // TIN = Taxpayer Identification Number
     private String tin;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Country getCountry() {
         return country;

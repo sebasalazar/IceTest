@@ -51,447 +51,6 @@
     font-style: normal;
 }
 
-#content {
-    width: 960px;
-    margin: 10px auto;
-}
-
-.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-error{
-    background: transparent;
-    border: 0;
-}
-
-/*
-.anticipo, .comprobante {
-    width: 960px;
-    margin: 10px auto;
-
-}
-*/
-
-.anticipo #anticipo-banner,
-.comprobante #comprobante-banner{
-    background: #333;
-    width: 100%;
-    border-radius: 5px;
-    height: 20px;
-    margin: 10px auto;
-}
-
-.anticipo #anticipo-content{
-    margin: 10px auto;
-    overflow: hidden;
-}
-
-.anticipo #anticipo-main-text{
-    font-family: "pf_beausans_prosemibold";
-    font-size: 18px;
-    text-align: center;
-    margin: 30px auto;
-    letter-spacing: 1px;
-    position: relative;
-}
-
-.anticipo #anticipo-main-text #anticipo-asistido{
-    font-family: "pf_beausans_proregular";
-    font-size: 11px;
-    line-height: 12px;
-    text-align: left;
-    padding: 10px;
-    padding-left: 60px;
-    position: absolute;
-    right: 0;
-    top: -12px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.anticipo #anticipo-main-text #anticipo-asistido i{
-    color: #008441;
-    font-size: 4em;
-    position: absolute;
-    top: 5px;
-    left: 15px;
-    -ms-transform: rotate(-40deg); /* IE 9 */
-    -webkit-transform: rotate(-40deg); /* Chrome, Safari, Opera */
-    transform: rotate(-40deg);
-}
-
-.anticipo #anticipo-main-text #anticipo-asistido span{
-    color: #008441;
-}
-
-.anticipo #anticipo-left{
-    width: 45%;
-    float: left;
-}
-
-.anticipo #anticipo-left-header{
-    background: #008441;
-    width: 100%;
-    border-radius: 3px;
-    padding: 6px 10px 4px;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.anticipo #anticipo-left-table{
-    padding: 20px 50px 10px 20px;
-    font-size: 13px;
-}
-
-.anticipo #anticipo-left-table table{
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0px;
-    border-collapse: collapse;
-}
-
-.anticipo #anticipo-left-table table tr:nth-child(even){
-    background: #f7f7f7;
-}
-
-.anticipo #anticipo-left-table table td{
-    padding: 2px 5px;
-    position: relative;
-}
-
-.anticipo #anticipo-left-table table td i{
-    position: absolute;
-    right: -20px;
-    font-size: 1.5em;
-    color: #cccccc;
-}
-
-.anticipo #anticipo-left-table table td.bold{
-    font-family: "pf_beausans_probold";
-}
-
-.anticipo #anticipo-left-table table td.green{
-    color: #008441;
-}
-
-.anticipo #anticipo-left span{
-    font-size: 10px;
-    color: #aaaaaa;
-}
-
-.anticipo #anticipo-right{
-    width: 45%;
-    float: right;
-}
-
-.anticipo #anticipo-right-header{
-    background: #008441;
-    width: 100%;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.anticipo #anticipo-right-table{
-    padding: 20px 20px 10px;
-    font-size: 13px;
-}
-
-.anticipo #anticipo-right-table table{
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0px;
-    border-collapse: collapse;
-}
-
-.anticipo #anticipo-right-table table td{
-    padding: 0px 5px;
-}
-
-.anticipo #anticipo-right-table table td .ui-selectonemenu,
-.anticipo #anticipo-right-table table td .ui-password,
-.anticipo #anticipo-right-table table td .ui-inputtext{
-    height: 30px;
-    width: 192px;
-    margin-bottom: 4px;
-    appearance: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-}
-
-.anticipo #anticipo-right-table table td .ui-selectonemenu{
-    /*margin-bottom: 0px;*/
-    /*padding-left: 10px;*/
-    padding-right: 28px;
-}
-
-.anticipo #anticipo-right-table table td .ui-outputlabel{
-    height: 30px;
-    display: block;
-    padding: 7px 5px;
-    margin-bottom: 4px;
-}
-
-.anticipo #anticipo-right-checkbox{
-    font-size: 11px;
-    padding: 0 20px;
-}
-
-.anticipo #anticipo-right-botones{
-    overflow: hidden;
-    padding: 10px 20px;
-}
-
-a[id^="boton-"]{
-    background: #008441;
-    height:25px;
-    color:white;
-    border: 0;
-    border-radius: 3px;
-    font-family: "pf_beausans_prolight";
-    font-size: 14px;
-    padding-top: 3px;
-    text-align: center;
-}
-
-.anticipo #anticipo-right-botones #boton-volver{
-    float: left;
-    width:75px;
-}
-
-
-.anticipo #error-content #boton-volver{
-    width: 75px;
-    display: block;
-    margin: 0 auto
-}
-
-.anticipo #anticipo-right-botones #boton-abonar{
-    float: right;
-    width:75px;
-    height:25px;
-    background: #008441;
-    color:white;
-    border: 0;
-    border-radius: 3px;
-    font-family: "pf_beausans_prolight";
-    font-size: 14px;
-    cursor: pointer;
-}
-
-.anticipo #anticipo-right-botones #boton-abonar[disabled],
-.anticipo #anticipo-right-botones #boton-abonar[disabled="disabled"],
-.anticipo #anticipo-right-botones #boton-abonar.ui-state-disabled{
-    background: #999999;
-    opacity: 1;
-    filter: Alpha(Opacity=100);
-    cursor: default;
-}
-
-#dlgMulticlave .ui-dialog-titlebar{
-    background: #008441;
-    color: #ffffff;
-}
-
-#dlgMulticlave #boton-modal{
-    display: block;
-    margin: 0 auto;
-    min-width:75px;
-    height:25px;
-    background: #008441;
-    color:white;
-    border: 0;
-    border-radius: 3px;
-    font-family: "pf_beausans_prolight";
-    font-size: 14px;
-    cursor: pointer;
-}
-
-#dlgLoading.ui-shadow {
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    border: 0;
-    background: transparent;
-}
-
-#dlgLoading .ui-dialog-content{
-    color: #008441;
-    text-align: center;
-    background: transparent;
-
-}
-
-.comprobante #comprobante-content{
-    width: 50%;
-    margin: 10px auto;
-}
-
-.comprobante #comprobante-content-header{
-    background: #008441;
-    width: 100%;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-    margin-top: 30px;
-}
-
-.comprobante #comprobante-content-text{
-    position: relative;
-    font-size: 13px;
-}
-
-.comprobante #comprobante-content-text #comprobante-descargar{
-    position: absolute;
-    top: -5px;
-    right: 0;
-}
-
-.comprobante #comprobante-content-text #comprobante-descargar i{
-    margin-left: 5px;
-    cursor: pointer;
-}
-
-.comprobante #comprobante-content-text p{
-    font-family: "pf_beausans_prosemibold";
-    font-size: 14px;
-    margin: 20px 0;
-}
-
-.comprobante #comprobante-content-transaccion{
-    background: #eeeeee;
-    width: 100%;
-    border-radius: 3px;
-    padding: 5px 10px;
-    font-size: 14px;
-    text-align: right;
-    margin-top: 20px;
-}
-
-.comprobante #comprobante-content-table{
-    padding: 20px;
-    font-size: 13px;
-}
-
-.comprobante #comprobante-content-table table{
-    width: 100%;
-    table-layout: fixed;
-    border-spacing: 0px;
-    border-collapse: collapse;
-}
-
-.comprobante #comprobante-content-table table tr:nth-child(even){
-    background: #f7f7f7;
-}
-
-.comprobante #comprobante-content-table table td{
-    padding: 1px 5px;
-}
-
-.comprobante #comprobante-content-table table td.bold{
-    font-family: "pf_beausans_probold";
-}
-
-.comprobante #comprobante-footer{
-    border-top: 1px solid #cccccc;
-    width: 70%;
-    padding: 10px 5px;
-    margin: 10px auto;
-    color: #aaaaaa;
-    font-size: 12px;
-}
-
-.error #error-content{
-    width: calc(50% + 20px);
-    margin: 30px auto;
-    border: 1px solid #008441;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.error #error-content-header{
-    background: #008441;
-    width: 100%;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.error #error-content-text{
-    position: relative;
-    font-size: 13px;
-}
-
-.error #error-content-text #error-ico{
-    position: absolute;
-    top: -5px;
-    right: 0;
-    color: #fedd00;
-}
-
-.error #error-content-text p{
-    font-family: 'pf_beausans_prosemibold';
-    font-size: 14px;
-    margin: 20px 0;
-}
-
-.error #error-botones{
-    margin-top: 20px;
-    text-align: center;
-}
-
-.timeout #timeout-content{
-    width: calc(50% + 20px);
-    margin: 30px auto;
-    border: 1px solid #008441;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.timeout #timeout-content-header{
-    background: #008441;
-    width: 100%;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: #ffffff;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-.timeout #timeout-content-text{
-    position: relative;
-    font-size: 13px;
-}
-
-.timeout #timeout-content-text #timeout-ico{
-    position: absolute;
-    top: -5px;
-    right: 0;
-}
-
-.timeout #timeout-content-text p{
-    font-family: 'pf_beausans_prosemibold';
-    font-size: 14px;
-    margin: 20px 0;
-}
-
-.timeout #timeout-botones{
-    margin-top: 20px;
-    text-align: center;
-}
-
-@media print {
-    .anticipo #anticipo-banner {
-        display: none;
-    }
-}
-
-
 .bfPopup, .bfPopup *{
     margin: 0;
     padding: 0;
@@ -554,7 +113,7 @@ a[id^="boton-"]{
     display: none;
 }
 
-.popupBodyWrapper .foreignResidenceYes table{
+.popupBodyWrapper .foreignResidencePanel table{
     width: 100%;
     font-size: 14px;
 }
@@ -566,7 +125,7 @@ a[id^="boton-"]{
     margin: 10px 0 -10px;
 }
 
-.popupBodyWrapper .foreignResidenceYes td{
+.popupBodyWrapper .foreignResidencePanel td{
     vertical-align: top;
     padding: 10px 0 0px;
 }
@@ -697,10 +256,23 @@ a[id^="boton-"]{
     border-bottom: 1px solid #cccccc;
 }
 
-.popupBodyWrapper .modalPnlCloseButton{
+.popupBodyWrapper .modalPnlResetButton{
     position: absolute;
     bottom: 15px;
-    left: 235px;
+    left: 165px;
+    height: 30px;
+    width: 130px;
+    border: 0;
+    border-radius: 3px;
+    background: #008441;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.popupBodyWrapper .modalPnlProcessButton{
+    position: absolute;
+    bottom: 15px;
+    right: 165px;
     height: 30px;
     width: 130px;
     border: 0;
@@ -732,15 +304,20 @@ a[id^="boton-"]{
     top: 15px;
     width: calc(100% - 30px);
     font-size: 11px;
-    padding: 3px 15px 3px 50px;
     margin-left: -10px;
 }
 
-.popupBodyWrapper .errorMessage{
+.popupBodyWrapper .modalMessages ul{
+    list-style: none;
+}
+
+.popupBodyWrapper .messageError{
+    display: block;
+    padding: 3px 15px 3px 50px;
     background: #f6d6a6;
 }
 
-.popupBodyWrapper .errorMessage:before{
+.popupBodyWrapper .messageError:before{
     font-family: 'FontAwesome';
     position: absolute;
     top: 3px;

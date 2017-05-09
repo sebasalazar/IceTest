@@ -1,4 +1,4 @@
-jQuery(function () {
+jQuery( document ).ready(function () {
     jQuery(".infoIcon").mouseenter(function () {
         jQuery(this).siblings(".infoBalloon").addClass("showBalloon");
     }).mouseleave(function () {

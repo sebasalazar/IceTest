@@ -1,5 +1,6 @@
 package cl.bancofalabella.icetest.servlet;
 
+import cl.bancofalabella.icetest.utils.FacesUtils;
 import com.icesoft.faces.webapp.xmlhttp.PersistentFacesServlet;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
